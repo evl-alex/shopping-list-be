@@ -21,13 +21,12 @@ export class ProductsRepository {
     const products = JSON.parse(contents);
 
     const id = uuid();
-    const newProduct = { id, ...content };
 
-    products[id] = newProduct;
+    products[id] = { id, ...content };
 
     await fs.writeFile('products.json', JSON.stringify(products));
 
-    return newProduct;
+    return products[id];
   }
 
   async update(id: string, content: CreateProductDto) {
@@ -40,10 +39,10 @@ export class ProductsRepository {
       return null;
     }
 
-    products.id = { id, ...content };
+    products[id] = { id, ...content };
     await fs.writeFile('products.json', JSON.stringify(products));
 
-    return productToUpdate;
+    return products[id];
   }
 
   async delete(id: string) {

@@ -5,7 +5,6 @@ import {
   IsNumber,
   IsDefined,
   IsOptional,
-  IsNotEmpty,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ValidationPipe } from '@nestjs/common';
