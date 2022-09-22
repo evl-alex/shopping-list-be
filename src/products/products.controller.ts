@@ -66,4 +66,9 @@ export class ProductsController {
 
     return product;
   }
+
+  @Post('/delete-all')
+  async deleteAllProducts() {
+    return await this.productsService.deleteALL();
+  }
 }

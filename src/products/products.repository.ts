@@ -60,4 +60,12 @@ export class ProductsRepository {
 
     return productToDelete;
   }
+
+  async deleteAll() {
+    await fs.writeFile('products.json', JSON.stringify({}));
+
+    return {
+      success: true,
+    };
+  }
 }

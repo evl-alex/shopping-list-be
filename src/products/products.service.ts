@@ -28,4 +28,8 @@ export class ProductsService {
   delete(id: string) {
     return this.productsRepo.delete(id);
   }
+
+  deleteALL() {
+    return this.productsRepo.deleteAll();
+  }
 }

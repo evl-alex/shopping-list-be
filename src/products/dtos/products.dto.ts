@@ -5,6 +5,7 @@ import {
   IsNumber,
   IsDefined,
   IsOptional,
+  ValidateIf,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ValidationPipe } from '@nestjs/common';
@@ -48,7 +49,8 @@ class ProductDetails {
 
 export class CreateProductDto extends ValidationPipe {
   @IsBoolean()
-  complete?: boolean | null;
+  @ValidateIf((object, value) => value !== null)
+  complete: boolean | null;
 
   @ValidateNested()
   @IsDefined()
